@@ -2,7 +2,23 @@ ELLIPSIS = '...'
 
 
 class Paginator:
-    def __init__(self, current_page, total_pages, boundaries=2, around=2):
+    """
+    Paginator representation.
+    Allows to get a string with pagination, which is built based on the given parameters:
+    :current_page: - active page (mandatory)
+    :total_pages: - total number of pages (mandatory)
+    :boundaries: - how many pages should be displayed around the edges of the first and last page (default 1)
+    :around: - how many pages should be displayed around the edges of the active page (default 1)
+
+    The line is build from three parts: head, body, and tail.
+    Those represent the first page with boundary pages, the active page with around pages,
+    and the last page with boundary pages.
+
+    use ``.get_pages()`` method for getting the string with pagination
+    or  ``.print_pages()`` to print them directly
+    """
+
+    def __init__(self, current_page, total_pages, boundaries=1, around=1):
         self._validate(current=current_page, total=total_pages, boundaries=boundaries, around=around)
         self.current = int(current_page)
         self.total = int(total_pages)
@@ -45,14 +61,13 @@ class Paginator:
         if left_tail_edge <= right_body_edge:
             return list(map(str, range(right_body_edge + 1, self.total + 1)))
 
-        return [ELLIPSIS] + list(map(str, range(left_tail_edge+1, self.total+1)))
+        return [ELLIPSIS] + list(map(str, range(left_tail_edge + 1, self.total + 1)))
 
     def get_pages(self):
         left_body_edge, right_body_edge = self._get_body_edges()
-
         head = ' '.join(self._get_head(left_body_edge))
+        body = ' '.join(map(str, range(left_body_edge, right_body_edge + 1)))
         tail = ' '.join(self._get_tail(right_body_edge))
-        body = ' '.join(map(str, range(left_body_edge, right_body_edge+1)))
 
         return ' '.join(filter(None, [head, body, tail]))
 

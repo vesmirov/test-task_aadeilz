@@ -79,12 +79,12 @@ valid_cases = (
     {
         'msg': 'test valid: case 15',
         'kwargs': {'current_page': 5, 'total_pages': 10},
-        'result': '1 2 3 4 5 6 7 ... 9 10'
+        'result': '1 ... 4 5 6 ... 10'
     },
     {
         'msg': 'test valid: case 16',
-        'kwargs': {'current_page': 6, 'total_pages': 13},
-        'result': '1 2 ... 4 5 6 7 8 ... 12 13'
+        'kwargs': {'current_page': 1, 'total_pages': 2},
+        'result': '1 2'
     },
 )
 

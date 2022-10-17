@@ -79,12 +79,12 @@ valid_cases = (
     {
         'msg': 'test valid: case 15',
         'kwargs': {'current_page': 5, 'total_pages': 10},
-        'result': '1 2 3 4 5 6 7 ... 9 10'
+        'result': '1 ... 4 5 6 ... 10'
     },
     {
         'msg': 'test valid: case 16',
-        'kwargs': {'current_page': 6, 'total_pages': 13},
-        'result': '1 2 ... 4 5 6 7 8 ... 12 13'
+        'kwargs': {'current_page': 1, 'total_pages': 2},
+        'result': '1 2'
     },
 )
 
@@ -136,12 +136,12 @@ invalid_cases = (
     },
     {
         'msg': 'test invalid: mandatory params are strings',
-        'kwargs': {'current_page': '5', 'total_pages': '10'},
+        'kwargs': {'current_page': 'a', 'total_pages': 'b'},
         'error': ValueError,
     },
     {
         'msg': 'test invalid: non-mandatory params are strings',
-        'kwargs': {'current_page': 5, 'total_pages': 10, 'boundaries': '2', 'around': '3'},
+        'kwargs': {'current_page': 5, 'total_pages': 10, 'boundaries': 'a', 'around': 'b'},
         'error': ValueError,
     },
     {

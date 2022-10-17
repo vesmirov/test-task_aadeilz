@@ -136,12 +136,12 @@ invalid_cases = (
     },
     {
         'msg': 'test invalid: mandatory params are strings',
-        'kwargs': {'current_page': '5', 'total_pages': '10'},
+        'kwargs': {'current_page': 'a', 'total_pages': 'b'},
         'error': ValueError,
     },
     {
         'msg': 'test invalid: non-mandatory params are strings',
-        'kwargs': {'current_page': 5, 'total_pages': 10, 'boundaries': '2', 'around': '3'},
+        'kwargs': {'current_page': 5, 'total_pages': 10, 'boundaries': 'a', 'around': 'b'},
         'error': ValueError,
     },
     {

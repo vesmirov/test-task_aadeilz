@@ -1,14 +1,15 @@
+#!/usr/bin/env python3
+
 ELLIPSIS = '...'
 
 
 class Paginator:
     """
-    Paginator representation.
     Allows to get a string with pagination, which is built based on the given parameters:
     :current_page: - active page (mandatory)
     :total_pages: - total number of pages (mandatory)
     :boundaries: - how many pages should be displayed around the edges of the first and last page (default 1)
-    :around: - how many pages should be displayed around the edges of the active page (default 1)
+    :around: - how many pages should be displayed around the active page (default 1)
 
     The line is build from three parts: head, body, and tail.
     Those represent the first page with boundary pages, the active page with around pages,
@@ -28,7 +29,8 @@ class Paginator:
     @staticmethod
     def _validate(**kwargs):
         for value in kwargs.values():
-            if not((isinstance(value, int) or (isinstance(value, str) and value.isnumeric())) and int(value) >= 0):
+            if not ((isinstance(value, int) or isinstance(value, str)
+                     and value.isnumeric()) and int(value) >= 0):
                 raise ValueError('Arguments must be either positive integer or zero')
 
         if not (kwargs['current'] and kwargs['total']):
@@ -76,5 +78,6 @@ class Paginator:
 
 
 if __name__ == '__main__':
-    args = input('Give me four numbers <current_page> <total_pages> <boundaries> <boundaries>: ').split()[:4]
+    args = input('Give me four numbers <current_page> <total_pages> '
+                 '<boundaries> <boundaries>: ').split()[:4]
     Paginator(*args).print_pages()

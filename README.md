@@ -18,8 +18,8 @@ directly.
 from pagination import Paginator
 
 kwargs = {'current_page': 4, 'total_pages': 10, 'boundaries': 2, 'around': 2}
-pages = Paginator.get_pages(**kwargs)
-print(pages)
+paginator = Paginator(**kwargs)
+print(paginator.get_pages())
 
 ...
 

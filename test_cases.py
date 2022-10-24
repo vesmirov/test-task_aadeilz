@@ -86,6 +86,11 @@ valid_cases = (
         'kwargs': {'current_page': 1, 'total_pages': 2},
         'result': '1 2'
     },
+    {
+        'msg': 'test valid: case 17',
+        'kwargs': {'current_page': 2, 'total_pages': 100, 'boundaries': 2, 'around': 2},
+        'result': '1 2 3 4 ... 99 100',
+    },
 )
 
 invalid_cases = (

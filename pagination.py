@@ -36,7 +36,7 @@ class Paginator:
         if not (kwargs['current'] and kwargs['total']):
             raise ValueError('"current_page" and "total_pages" cannot be zero')
 
-        if kwargs['total'] < kwargs['current']:
+        if int(kwargs['current']) > int(kwargs['total']):
             raise ValueError('"total_page" cannot be lower than "current_page"')
 
     def _get_body_edges(self):

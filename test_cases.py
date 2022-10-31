@@ -91,6 +91,27 @@ valid_cases = (
         'kwargs': {'current_page': 2, 'total_pages': 100, 'boundaries': 2, 'around': 2},
         'result': '1 2 3 4 ... 99 100',
     },
+    {
+        'msg': 'test valid: case 18',
+        'kwargs': {'current_page': 10, 'total_pages': 10, 'boundaries': 6, 'around': 1},
+        'result': '1 2 3 4 5 6 7 8 9 10',
+    },
+    {
+        'msg': 'test valid: case 19',
+        'kwargs': {'current_page': 1, 'total_pages': 10, 'boundaries': 6, 'around': 1},
+        'result': '1 2 3 4 5 6 7 8 9 10',
+    },
+    {
+        'msg': 'test valid: case 20',
+        'kwargs': {'current_page': 10, 'total_pages': 10, 'boundaries': 3, 'around': 1},
+        'result': '1 2 3 ... 8 9 10',
+    },
+    {
+        'msg': 'test valid: case 21',
+        'kwargs': {'current_page': 1, 'total_pages': 10, 'boundaries': 3, 'around': 1},
+        'result': '1 2 3 ... 8 9 10',
+    },
+
 )
 
 invalid_cases = (

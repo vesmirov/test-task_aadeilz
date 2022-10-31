@@ -76,9 +76,9 @@ class Paginator:
 
         left_body_edge, right_body_edge = self._get_body_edges()
 
-        head, body_in_head = self._get_head(left_body_edge, right_body_edge)
-        tail, body_in_tail = self._get_tail(left_body_edge, right_body_edge)
-        body = [] if body_in_head or body_in_tail else map(str, range(left_body_edge, right_body_edge + 1))
+        head, head_includes_body = self._get_head(left_body_edge, right_body_edge)
+        tail, tail_includes_body = self._get_tail(left_body_edge, right_body_edge)
+        body = [] if head_includes_body or tail_includes_body else map(str, range(left_body_edge, right_body_edge + 1))
 
         return ' '.join(filter(None, [' '.join(head), ' '.join(body), ' '.join(tail)]))
 
